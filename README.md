@@ -1,2 +1,0 @@
-# XXDScorecard
-scorecard developing utilities.
