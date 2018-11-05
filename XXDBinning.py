@@ -144,7 +144,7 @@ class XXDNumberBin():
         data = pd.DataFrame({'XX':XX,'YY':YY})
         cnt = XX.count()
         assert cnt>0,'ERROR: "{}" 变量值全为 NULL  !'.format(x)
-        edges = pd.Series(cutoff).sort_values()
+        edges = pd.Series(cutoff+[np.inf]).sort_values()
         mx = edges.max()
         data['bin'] = XX.map(lambda x:(edges>=x).idxmax() if x<=mx else edges.index[-1],na_action='ignore').fillna(-1)
         self.__bin_stats= self.calc_stats(data)
@@ -299,7 +299,6 @@ class XXDCharBin():
         res['WoE'] = np.log(res.PctBad/res.PctGood)
         res['IV'] = (res.PctBad-res.PctGood)*res.WoE
         res['TotalIV'] = res.IV.replace({np.inf:0,-np.inf:0}).sum()
-        #res=res.append(pd.Series({'Var':x,'Min':XX.min(),'Max':XX.max(),'LnOdds':np.log(),'IV':res.IV.sum()},name='ALL'))
         return res
     def manual_bin(self,df,x,y,bins=[]):
         '''
@@ -319,13 +318,14 @@ class XXDCharBin():
         data['bin'] = -1
         for i,values in enumerate(bins):
             data.loc[data.XX.isin(values),'bin']=i
+        data.loc[data.XX.isnull(),'bin'] = -2
         self.__bins=bins.copy()
         res = self.calc_stats(data)
         self.__bin_stats= res
         
     def pct_bin(self,df,x,y,sp_bins = [],max_bin=10): 
         '''
-		字符型自动分箱，
+        字符型自动分箱，
         sp_bins: 特殊值分箱. [['a'],['b'],['c','d'],['e']]
         df: 数据
         x: 变量名
