@@ -1,3 +1,6 @@
+
+
+
 # XXDScorecard
 
 # 安装
@@ -71,3 +74,6 @@ cb.manual_bin(train_df,'name','flgGood',[['yuqing','xuxiaodong'],['jack ma'],['y
 cb.trans_to_woe(test_df['name'])
 
 
+# 更多内容请关注微信公众号
+
+![avatar](./wx.jpg)
