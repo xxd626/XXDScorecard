@@ -79,7 +79,7 @@ cb.trans_to_woe(test_df['name'])
 
 ![avatar](./wx.jpg)
 
-# 如果感兴趣，也可以学习课程
+# 如果对建模感兴趣，也可以学习整套[信用风险建模课程](https://study.163.com/course/introduction.htm?share=2&shareId=480000001892725&courseId=1209237822&_trace_c_p_k2_=3f7ef0c8f3764992b04a219db1296258)
 
 ![avatar](./1.png)
 
