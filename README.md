@@ -74,6 +74,17 @@ cb.manual_bin(train_df,'name','flgGood',[['yuqing','xuxiaodong'],['jack ma'],['y
 cb.trans_to_woe(test_df['name'])
 
 
+
 # 更多内容请关注微信公众号
 
 ![avatar](./wx.jpg)
+
+# 如果感兴趣，也可以学习课程
+
+![avatar](./1.png)
+
+![avatar](./5.png)
+
+![avatar](./6.png)
+
+
